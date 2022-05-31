@@ -7,7 +7,7 @@ Please see the assignment:
 # Jenkins Job Description
 This Jenkins job is doing the following:
 - Checks out a project from https://github.com/hughbrien/HelloWorldMaven. 
-- - I forked the project so I could track all the changes and publish thme [here](https://github.com/hughbrien/HelloWorldMaven)
+- - I  [forked the project](https://github.com/hughbrien/HelloWorldMaven) so I could track all the [changes](https://github.com/hughbrien/HelloWorldMaven/commits/master)
 - The job then executes a series of /bin/sh scripts
 - Generates a json file 
 - Parse the generated file to access specifc parameters for the maven build
