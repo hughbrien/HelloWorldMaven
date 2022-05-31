@@ -13,10 +13,11 @@ This Jenkins job is doing the following:
 - Calls mvn with the appropriate parameters.  
  
 # Notes on Assisting Customers
-- When receiving this it is a good idea to ensure that the 
+- When receiving this kind of request for he is a good idea to ensure that the 
 - Ensure your code / project  will compile correctly in a local environment
+- mvn clean compile test deploy all work correctly.
 - It is also a good idea to "mirror" your environment with the customer environments.  
-- - You don't have to do this everytime.  Sometimes you can see the typos or errors right away  
+- - You don't have to do this everytime. Sometimes you can see the typos or errors right away  
 - Ensure all the commands invoked by your Jenkins agent/runtime have access to the specific runtimes.  For example install jq and solar scanner
 
 
