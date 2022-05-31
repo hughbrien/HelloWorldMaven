@@ -1,0 +1,228 @@
+tarted by user Hugh Brien
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on mac-agent-1 in /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Pre-Build)
+[Pipeline] sh
++ echo 'Starting the script'
+Starting the script
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Avoid second fetch
+Checking out Revision 2856449e6742ca2025d2dda5246e2f9c06708c3a (refs/remotes/origin/master)
+Commit message: "Update README.md"
+Cloning repository https://github.com/hughbrien/HelloWorldMaven.git
+ > git init /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild # timeout=10
+Fetching upstream changes from https://github.com/hughbrien/HelloWorldMaven.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.35.1'
+ > git fetch --tags --force --progress -- https://github.com/hughbrien/HelloWorldMaven.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/hughbrien/HelloWorldMaven.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 2856449e6742ca2025d2dda5246e2f9c06708c3a # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master 2856449e6742ca2025d2dda5246e2f9c06708c3a # timeout=10
+ > git rev-list --no-walk 2856449e6742ca2025d2dda5246e2f9c06708c3a # timeout=10
+[Pipeline] sh
++ export 'param1=clean compile'
++ param1='clean compile'
+[Pipeline] sh
++ echo '{ 
+                 	"token": "MyToken", 
+                 	"createBuildSessionId": true, 
+                 	"appName": "${env.JOB_NAME}", 
+                 	"branchName": "feature/sealight", 
+                 	"buildName": "${env.BUILD_NUMBER}", 
+                 	"packagesIncluded": "*com.kuhniverse.*", 
+                 	"packagesExcluded": "", 
+                 	"filesIncluded": "*.class", 
+                 	"filesExcluded": "*test-classes*", 
+                 	"recursive": true, 
+                 	"includeResources": true, 
+                 	"testStage": "${SUREFIRE_TEST_STAGE}", 
+                 	"failsafeArgLine":"deploy", 
+                 	"labId": "clean compile",
+                 	"executionType": "full", 
+                 	"logEnabled": false, 
+                 	"logDestination": "console", 
+                 	"logLevel": "off", 
+                 	"logFolder": "/tmp", 
+                 	"sealightsJvmParams": { 
+                     	"sl.scm.provider": "test", 
+                     	"sl.scm.baseUrl": "https://github.com/hughbrien/HelloWorldMaven", 
+                     	 "sl.scm.baseUrl": "https://{dns}/projects/{project}/repos/{repo}/browse", 
+                     	"sl.scm.version": "4.9.0"}, 
+                 	"enabled": true 
+            	}'
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+++ cat slmaven.json
+++ jq -r .labId
++ labId='clean compile'
++ echo clean compile
+clean compile
++ mvn clean compile
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.test:HelloWorldMaven >----------------------
+[INFO] Building HelloWorldMaven 1.0.6-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ HelloWorldMaven ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ HelloWorldMaven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ HelloWorldMaven ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.944 s
+[INFO] Finished at: 2022-05-31T18:54:40-04:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ mvn test
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.test:HelloWorldMaven >----------------------
+[INFO] Building HelloWorldMaven 1.0.6-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ HelloWorldMaven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ HelloWorldMaven ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ HelloWorldMaven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ HelloWorldMaven ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ HelloWorldMaven ---
+[INFO] Surefire report directory: /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.test.HelloWorldMaven.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.210 s
+[INFO] Finished at: 2022-05-31T18:54:42-04:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] sh
++ mvn deploy
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.test:HelloWorldMaven >----------------------
+[INFO] Building HelloWorldMaven 1.0.6-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ HelloWorldMaven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ HelloWorldMaven ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ HelloWorldMaven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ HelloWorldMaven ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ HelloWorldMaven ---
+[INFO] Surefire report directory: /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.test.HelloWorldMaven.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ HelloWorldMaven ---
+[INFO] Building jar: /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/target/HelloWorldMaven-1.0.6-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ HelloWorldMaven ---
+[INFO] Installing /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/target/HelloWorldMaven-1.0.6-SNAPSHOT.jar to /Users/hughbrien/.m2/repository/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/HelloWorldMaven-1.0.6-SNAPSHOT.jar
+[INFO] Installing /Users/hughbrien/Documents/Software/BrowserStackDemo/jenkins-agent/workspace/SeaLightsBuild/pom.xml to /Users/hughbrien/.m2/repository/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/HelloWorldMaven-1.0.6-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ HelloWorldMaven ---
+Downloading from internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/maven-metadata.xml
+Progress (1): 773 B
+                   
+Downloaded from internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/maven-metadata.xml (773 B at 18 kB/s)
+Uploading to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/HelloWorldMaven-1.0.6-20220531.225443-5.jar
+Progress (1): 2.5 kB
+                    
+Uploaded to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/HelloWorldMaven-1.0.6-20220531.225443-5.jar (2.5 kB at 164 kB/s)
+Uploading to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/HelloWorldMaven-1.0.6-20220531.225443-5.pom
+Progress (1): 1.1 kB
+                    
+Uploaded to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/HelloWorldMaven-1.0.6-20220531.225443-5.pom (1.1 kB at 365 kB/s)
+Downloading from internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/maven-metadata.xml
+Progress (1): 283 B
+                   
+Downloaded from internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/maven-metadata.xml (283 B at 47 kB/s)
+Uploading to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/maven-metadata.xml
+Progress (1): 773 B
+                   
+Uploaded to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/1.0.6-SNAPSHOT/maven-metadata.xml (773 B at 258 kB/s)
+Uploading to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/maven-metadata.xml
+Progress (1): 283 B
+                   
+Uploaded to internal.repo: file:///Users/hughbrien/.jenkins/artifacts/com/test/HelloWorldMaven/maven-metadata.xml (283 B at 94 kB/s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.202 s
+[INFO] Finished at: 2022-05-31T18:54:45-04:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
