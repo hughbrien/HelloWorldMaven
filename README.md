@@ -34,5 +34,6 @@ This Jenkins job is doing the following:
 - Fixed Typo jq command "failsafeArgLine":"deploy",
 - Updated the last two Stages step so they would run correctly. 
 - Here is the  [Success Log](https://github.com/hughbrien/HelloWorldMaven/blob/master/success.log) 
+- Here is an image from [Jenkins of the build](https://github.com/hughbrien/HelloWorldMaven/blob/master/buildimage.jpg) 
 
 
