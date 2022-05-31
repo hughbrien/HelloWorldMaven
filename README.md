@@ -23,7 +23,7 @@ This Jenkins job is doing the following:
 - Recommend ways to optimize and simplify the building process by using or NOT using specific plugins. 
 
 
-# Here are the actual Steps I took to get this job running correctly. 
+# Actual Steps and Changes 
 - Fixed  pom.xml file so code would compile locally. 
 - Updated Artifact Repository path 
 - The demo software project will now build
