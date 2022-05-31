@@ -15,9 +15,12 @@ This Jenkins job is doing the following:
  
 # Notes on Assisting Customers
 - Here are some good tips  
-- Ensure your code / project  will compile correctly in a local environment
-- If possible, it can be a good idea to "mirror" your environment with the customer environments. Especially for complex problems. 
-- Ensure all the commands invoked by your Jenkins agent/runtime have access to the specific runtimes.  For example install jq and solar scanner
+- Ensure your code / project will compile correctly in a local environment
+- If possible, it can be a good idea to "mirror" your environment with the customer environments. Especially for complex problems 
+- Ensure all the commands invoked by your Jenkins agent/runtime are installed in your environment.
+- Ensure Jenkins has access via appropriate PATH variables
+- Ensure the CI/CD Environments are complete
+- Recommend ways to optimize and simplify the building process by using or NOT using specific plugins. 
 
 
 # Here are the actual Steps I took to get this job running correctly. 
@@ -31,4 +34,5 @@ This Jenkins job is doing the following:
 - Fixed Typo jq command "failsafeArgLine":"deploy",
 - Updated the last two Stages step so they would run correctly. 
 - Here is the  [Success Log](https://github.com/hughbrien/HelloWorldMaven/blob/master/success.log) 
+
 
