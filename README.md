@@ -10,15 +10,13 @@ This Jenkins job is doing the following:
 - - I  [forked the project](https://github.com/hughbrien/HelloWorldMaven) so I could track all the [changes](https://github.com/hughbrien/HelloWorldMaven/commits/master)
 - The job then executes a series of /bin/sh scripts
 - Generates a json file 
-- Parse the generated file to access specifc parameters for the maven build
-- Calls mvn with the appropriate parameters.  
+- Parses the generated file to access specific parameters for the maven build
+- Calls mvn with build parameters.  
  
 # Notes on Assisting Customers
-- When receiving this kind of request for he is a good idea to ensure that the 
+- Here are some good tips  
 - Ensure your code / project  will compile correctly in a local environment
-- mvn clean compile test deploy all work correctly.
-- It is also a good idea to "mirror" your environment with the customer environments.  
-- - You don't have to do this everytime. Sometimes you can see the typos or errors right away  
+- If possible, it can be a good idea to "mirror" your environment with the customer environments. Especially for complex problems. 
 - Ensure all the commands invoked by your Jenkins agent/runtime have access to the specific runtimes.  For example install jq and solar scanner
 
 
@@ -26,8 +24,9 @@ This Jenkins job is doing the following:
 - Fixed  pom.xml file so code would compile locally. 
 - Updated Artifact Repository path 
 - The demo software project will now build
-- Installed the "jq" commmand the server : brew install jq
-- Intalled Sonar Scanner : brew install sonar-scanner
+- mvn clean compile test deploy all work correctly.
+- Installed the "jq" command the server : brew install jq
+- Installed Sonar Scanner : brew install sonar-scanner
 - All the sh commands work. 
 - Fixed Typo jq command "failsafeArgLine":"deploy",
 - Updated the last two Stages step so they would run correctly. 
