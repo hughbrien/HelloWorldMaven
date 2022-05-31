@@ -1,5 +1,10 @@
 # Hello World Maven for Interview
 
+[Hugh Brien](https://github.com/hughbrien)
+[LinkedIn] : (https://www.linkedin.com/in/hughbrien/)
+
+
+
 Please see the assignment: 
 1. Fix the job so it completes properly. 
 2. Explain what the script is doing
